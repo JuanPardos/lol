@@ -3,24 +3,23 @@
     'name': "lol",
 
     'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
+        Modulo de práctica para el examen de Odoo""",
 
     'description': """
-        Long description of module's purpose
+        Relacion 1-N entre Roles principales y Campeones
     """,
 
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
+    'author': "Juan Pardos Zarate",
+    'website': "https://twitter.com/Juanpzar",
 
     # Categories can be used to filter modules in modules listing
     # Check https://github.com/odoo/odoo/blob/12.0/odoo/addons/base/data/ir_module_category_data.xml
     # for the full list
     'category': 'Uncategorized',
-    'version': '0.1',
+    'version': '1.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base','baseModule'],
 
     # always loaded
     'data': [
