@@ -2,7 +2,7 @@
 
 from odoo import models, fields, api
 
-class roles(models.Model):
+class rol(models.Model):
     _name = 'lol.rol'
 
     name = fields.Char()

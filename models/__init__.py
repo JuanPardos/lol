@@ -1,5 +1,5 @@
 # -*- coding: ISO-8859-1 -*-
 
-from . import models
+from . import rol
 from . import campeones
-from . import roles
+from . import models

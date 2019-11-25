@@ -2,7 +2,7 @@
   <data>
     <!-- explicit list view definition -->
     
-    <record model="ir.ui.view" id="lol.list_roles">
+    <record model="ir.ui.view" id="lol.list_rol">
       <field name="name">rol list</field>
       <field name="model">lol.rol</field>
       <field name="arch" type="xml">
@@ -56,7 +56,7 @@
     
     <menuitem name="Roles" id="lol.menuRoles" parent="lol.menu"
               action="lol.action_roles"/>
-    <menuitem name="Campeones" id="lol" parent="lol.menuCampeones"
+    <menuitem name="Campeones" id="lol" parent="lol.menu"
               action="lol.action_campeones"/>
     
   </data>

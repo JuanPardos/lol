@@ -7,7 +7,7 @@ class campeones(models.Model):
 
     name = fields.Char(required = True, string='Nombre')
     description = fields.Text(string='Descripción')
-    fecha = fields.datetime(required = True)
+    fecha = fields.Char(required=True,string='Fecha Lanzamiento')
     idrol = fields.Many2one('lol.rol',string='Rol Principal')
 
     
