@@ -1,9 +1,9 @@
-# -*- coding: ISO-8859-1 -*-
+# -*- coding: utf-8 -*-
 {
     'name': "lol",
 
     'summary': """
-        Modulo de práctica para el examen de Odoo""",
+        Sube a challenger como un pro""",
 
     'description': """
         Relacion 1-N entre Roles principales y Campeones

@@ -22,10 +22,66 @@
           <field name="name"/>
           <field name="description"/>
           <field name="fecha"/>
+          <field name="AP"/>
+          <field name="AD"/>
           <field name="idrol"/>
         </tree>
       </field>
     </record>
+
+    <record model="ir.ui.view" id="session_form_view">   <!--Esto es el create de Campeones -->
+            <field name="name">Campeones create</field>
+            <field name="model">lol.campeones</field>
+            <field name="arch" type="xml">
+                <form string="Session Form">
+                    <sheet>
+                        <group>
+                            <group string="Datos">
+                                <field name="name"/>
+                                <field name="description"/>
+                                <field name="fecha"/>
+                            </group>
+                            <group string="Datos extra">
+                                <field name="AP"/>
+                                <field name="AD"/>
+                                <field name="idrol"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    <record model="ir.ui.view" id="session_form_view2">   <!--Esto es el create de Roles-->
+            <field name="name">Rol create</field>
+            <field name="model">lol.rol</field>
+            <field name="arch" type="xml">
+                <form string="Session Form">
+                    <sheet>
+                        <group>
+                            <group string="Datos">
+                                <field name="name"/>
+                                <field name="description"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+    <record model="ir.ui.view" id="campeon_search_view">
+            <field name="name">campeon.search</field>
+            <field name="model">lol.campeones</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <group string="Group By">
+                        <filter name="by_rol" string="Rol"
+                                context="{'group_by': 'idrol'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
     
 
     <!-- actions opening views on models -->

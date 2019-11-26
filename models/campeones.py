@@ -1,13 +1,25 @@
-# -*- coding: ISO-8859-1 -*-
+# -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
+from odoo import models, fields, api, exceptions
 
 class campeones(models.Model):
     _name = 'lol.campeones'
 
     name = fields.Char(required = True, string='Nombre')
     description = fields.Text(string='Descripción')
-    fecha = fields.Char(required=True,string='Fecha Lanzamiento')
+    fecha = fields.Date(String='Fecha Lanzamiento')
+    AP = fields.Boolean()
+    AD = fields.Boolean()
     idrol = fields.Many2one('lol.rol',string='Rol Principal')
+
+    _sql_constraints = [
+    ('name_description_check',
+        'CHECK(name != description)',
+        "La descripción del campeón no puede coincidir con el nombre"),
+
+    ('name_unique',
+        'UNIQUE(name)',
+        "Ya existe un campeón con ese nombre"),
+    ]    
 
     

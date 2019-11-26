@@ -1,6 +1,6 @@
-# -*- coding: ISO-8859-1 -*-
+# -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
+from odoo import models, fields, api, exceptions
 
 class rol(models.Model):
     _name = 'lol.rol'
@@ -9,4 +9,13 @@ class rol(models.Model):
     description = fields.Text()
     campeones = fields.One2many('lol.campeones','idrol',string='Campeones')
 
+    _sql_constraints = [
+    ('name_description_check',
+        'CHECK(name != description)',
+        "La descripción del rol no puede coincidir con el nombre"),
+
+    ('name_unique',
+        'UNIQUE(name)',
+        "Ya existe un rol con ese nombre"),
+    ]        
     
