@@ -21,10 +21,10 @@
         <tree>
           <field name="name"/>
           <field name="description"/>
+          <field name="idrol"/>
           <field name="fecha"/>
           <field name="AP"/>
           <field name="AD"/>
-          <field name="idrol"/>
         </tree>
       </field>
     </record>

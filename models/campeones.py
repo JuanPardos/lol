@@ -7,10 +7,10 @@ class campeones(models.Model):
 
     name = fields.Char(required = True, string='Nombre')
     description = fields.Text(string='Descripción')
+    idrol = fields.Many2one('lol.rol',string='Rol Principal')
     fecha = fields.Date(String='Fecha Lanzamiento')
     AP = fields.Boolean()
     AD = fields.Boolean()
-    idrol = fields.Many2one('lol.rol',string='Rol Principal')
 
     _sql_constraints = [
     ('name_description_check',
