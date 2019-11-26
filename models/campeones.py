@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from datetime import timedelta
 from odoo import models, fields, api, exceptions
 
 class campeones(models.Model):
@@ -7,8 +8,9 @@ class campeones(models.Model):
 
     name = fields.Char(required = True, string='Nombre')
     description = fields.Text(string='Descripción')
-    idrol = fields.Many2one('lol.rol',string='Rol Principal')
     fecha = fields.Date(String='Fecha Lanzamiento')
+    idrol = fields.Many2one('lol.rol',string='Rol Principal')
+    rework = fields.Many2one('lol.rework','idcampeon')
     AP = fields.Boolean()
     AD = fields.Boolean()
 
@@ -20,6 +22,8 @@ class campeones(models.Model):
     ('name_unique',
         'UNIQUE(name)',
         "Ya existe un campeón con ese nombre"),
-    ]    
+    ]
+     
+ 
 
     

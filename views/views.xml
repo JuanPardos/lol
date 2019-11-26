@@ -10,6 +10,7 @@
           <field name="name"/>
           <field name="description"/>
           <field name="campeones"/>
+          <field name="nerf"/>
         </tree>
       </field>
     </record>
@@ -25,11 +26,24 @@
           <field name="fecha"/>
           <field name="AP"/>
           <field name="AD"/>
+          <field name="rework"/>
         </tree>
       </field>
     </record>
 
-    <record model="ir.ui.view" id="session_form_view">   <!--Esto es el create de Campeones -->
+    <record model="ir.ui.view" id="lol.list_reworks">
+      <field name="name">Reworks List</field>
+      <field name="model">lol.rework</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="idcampeon"/>
+          <field name="fecha"/>
+          <field name="description"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="session_form_view_Campeones">   <!--Esto es el create de Campeones -->
             <field name="name">Campeones create</field>
             <field name="model">lol.campeones</field>
             <field name="arch" type="xml">
@@ -52,7 +66,7 @@
             </field>
         </record>
 
-    <record model="ir.ui.view" id="session_form_view2">   <!--Esto es el create de Roles-->
+    <record model="ir.ui.view" id="session_form_view_Roles">   <!--Esto es el create de Roles-->
             <field name="name">Rol create</field>
             <field name="model">lol.rol</field>
             <field name="arch" type="xml">
@@ -61,6 +75,25 @@
                         <group>
                             <group string="Datos">
                                 <field name="name"/>
+                                <field name="description"/>
+                                <field name="nerf"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+      
+      <record model="ir.ui.view" id="session_form_view_Reworks">   <!--Esto es el create de Roles-->
+            <field name="name">Rework create</field>
+            <field name="model">lol.rework</field>
+            <field name="arch" type="xml">
+                <form string="Session Form">
+                    <sheet>
+                        <group>
+                            <group string="Datos">
+                                <field name="idcampeon"/>
+                                <field name="fecha"/>
                                 <field name="description"/>
                             </group>
                         </group>
@@ -83,6 +116,15 @@
             </field>
         </record>
     
+    <record model="ir.ui.view" id="reworks_calendar_view">
+      <field name="name">lol.calendar</field>
+      <field name="model">lol.rework</field>
+      <field name="arch" type="xml">
+        <calendar string="Calendario" date_start="start_date" date_stop="end_date">
+          <field name="name"/>
+        </calendar>
+      </field>
+    </record>
 
     <!-- actions opening views on models -->
 
@@ -91,6 +133,7 @@
       <field name="res_model">lol.rol</field>
       <field name="view_mode">tree,form</field>
     </record>
+    
 
     <record model="ir.actions.act_window" id="lol.action_campeones">
       <field name="name">Campeones</field>
@@ -98,6 +141,11 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+    <record model="ir.actions.act_window" id="lol.action_reworks">
+      <field name="name">Reworks</field>
+      <field name="res_model">lol.rework</field>
+      <field name="view_mode">tree,form,calendar</field>
+    </record>
 
     <!-- Top menu item -->
     
@@ -112,8 +160,10 @@
     
     <menuitem name="Roles" id="lol.menuRoles" parent="lol.menu"
               action="lol.action_roles"/>
-    <menuitem name="Campeones" id="lol" parent="lol.menu"
+    <menuitem name="Campeones" id="lol.menuCampeones" parent="lol.menu"
               action="lol.action_campeones"/>
+    <menuitem name="Reworks" id="lol.menuReworks" parent="lol.menu"
+              action="lol.action_reworks"/>
     
   </data>
 </odoo>

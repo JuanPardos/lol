@@ -8,6 +8,7 @@ class rol(models.Model):
     name = fields.Char()
     description = fields.Text()
     campeones = fields.One2many('lol.campeones','idrol',string='Campeones')
+    nerf = fields.Boolean(default=False,string='Ha sido nerfeado este año')
 
     _sql_constraints = [
     ('name_description_check',
